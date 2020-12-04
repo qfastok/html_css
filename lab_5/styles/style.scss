@@ -1,0 +1,131 @@
+@import url(https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css);
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  user-select: none;
+}
+
+[data-if-calculation] {
+  &:not(.active-calculation) {
+    display: none;
+  }
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+.menu {
+  display: flex;
+  color: white;
+  white-space: nowrap;
+
+  &-item {
+    position: relative;
+
+    &.active {
+      > .menu-sub {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    i {
+      pointer-events: none;
+      margin-left: 5px;
+    }
+  }
+
+  &-link {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.15s;
+    display: flex;
+    align-items: center;
+    color: white !important;
+
+    &:hover {
+      background-color: rgba(white, 0.15);
+    }
+  }
+
+  &-sub {
+    position: absolute;
+    z-index: 1;
+    top: calc(100%);
+    left: 0;
+    background-color: var(--dark);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.15s;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+    .menu-link {
+      i {
+        transform: rotate(270deg);
+      }
+    }
+
+    .menu-sub {
+      left: calc(100%);
+      top: 0;
+    }
+  }
+}
+
+.calculator {
+  width: fit-content;
+  margin: 0 auto;
+
+  .form-control {
+    text-align: end;
+  }
+
+  &-units {
+    .d-grid {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 10px;
+      grid-template-columns: repeat(4, 45px);
+
+      &:first-child {
+        grid-template-columns: 155px 45px;
+      }
+
+      &:last-child {
+        grid-template-columns: 100px 45px 45px;
+        margin-bottom: 0;
+      }
+    }
+
+    .btn {
+      i {
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.flex {
+  &-1 {
+    flex: 1;
+  }
+
+  &-2 {
+    flex: 2;
+  }
+
+  &-3 {
+    flex: 3;
+  }
+
+  &-4 {
+    flex: 4;
+  }
+}
